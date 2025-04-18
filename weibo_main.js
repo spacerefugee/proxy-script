@@ -119,7 +119,7 @@ function isAd(data) {
 	if(!data) {
 		return false;
 	}
-	if(data.mblogtypename == '广告' || data.mblogtypename == '热推') {return true};
+	if(data.mblogtypename == '广告' || data.mblogtypename == '热推' || data.mblogtypename == '荐读') {return true};
 	if(data.promotion && data.promotion.type == 'ad') {return true};
 	return false;
 }
@@ -589,7 +589,7 @@ function removeMediaHomelist(data) {
 function removeComments(data) {
 	let delType = ['广告'];
 	if(mainConfig.removeRelateItem) delType.push('相关内容');
-	if(mainConfig.removeRecommendItem) delType.push(...['推荐', '热推']);
+	if(mainConfig.removeRecommendItem) delType.push(...['推荐', '热推', '荐读']);
 	// if(delType.length === 0) return;
 	let items = data.datas || [];
 	if(items.length === 0) return;
